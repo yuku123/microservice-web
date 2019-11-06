@@ -16,6 +16,16 @@ router.get('/workflowEngineDataSourceConfiguration', function (req, res, next) {
     })
 })
 
+//在数据源配置列表内的,创建逻辑
+router.get('/workflowEngineDataSourceConfiguration/create', function (req, res, next) {
+    res.render('workflowEngineDataSourceConfigurationCreate', {
+        name: 'index',
+        userName: 'zifang'
+    })
+})
+
+
+
 router.get('/workflowEngineConfiguration', function (req, res, next) {
     res.render('workflowEngineConfiguration', {
         name: 'index',

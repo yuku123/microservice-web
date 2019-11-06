@@ -40,6 +40,8 @@ app.use('/report', require('./routes/report'));
 app.use('/workflowEngine',require('./routes/workflowEngine'))
 
 app.set('views', path.join(__dirname, 'views'))// 设置存放模板文件的目录
+app.set('views', path.join(__dirname, 'views/workflow'))// 设置存放模板文件的目录
+
 app.set('view engine', 'ejs')// 设置模板引擎为 ejs
 
 //静态资源请求库

@@ -9,8 +9,8 @@ let request = require('request')
 // let app = express();
 
 router.get('/', function (req, res, next) {
-  res.render('index', {
-    name: 'index',
+  res.render('/workflow/aa', {
+    name: 'aa',
     userName: 'zifang'
   })
   //

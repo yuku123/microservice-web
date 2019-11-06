@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*drag(event);函数的功能:
+        *   把界面元素的的id属性激励在事件中，类型是Text。
+        * */
+        function drag(event){
+            event.dataTransfer.setData("text",event.target.id);
+        }
+        /*drop(event);函数的功能：
+        *   得到移动界面元素的id，然后将其放置到界面元素自身中去。
+        * */
+        function drop(event) {
+            var data = event.dataTransfer.getData("text");
+            event.target.appendChild(document.getElementById(data));
+        }
+        /*allowDrop(event);函数的功能
+        *   修改界面元素的默认处理方法，使界面元素可以接受移动元素。
+        * */
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+    </script>
+</head>
+<body>
+
+
+
+<div class="main">
+
+    <div class=""></div>
+
+    <img id="drag1"
+         src="a.png"
+         alt=""
+         ondragstart="drag(event)">
+
+</div>
+<!-- 1.要允许页面元素可以拖动就必须设置页面元素的属性“draggable = true”,但是“连接和图片页面元素”默认的值也是为true的所以可以不必设置。
+     2.可以拖动过后就要记录被拖动的元素，使用ondragstart事件，就是当你开始拖动时候就启动事件中对应的函数。
+-->
+
+<p></p>
+<!-- 1.如果让界面元素可接收被拖动的界面元素，就必须定义ondragover事件，事件作用：在当可拖动元素正在拖动到放置目标时触发。
+     2.为什么要有了？在默认情况下移动元素是不能放置到其他的界面元素中去的，如果要实现该功能，我们就要阻止界面元素的默认处理方法。
+     3.还需要在该界面元素中定义一个ondrop事件，事件功能：当移动元素放置到该界面元素时，事件中的函数被触发。
+
+-->
+<div id="div1"
+     style="
+         width: 533px;
+         height: 300px;
+         border: solid;
+         float: left;"
+     ondrop="drop(event)"
+     ondragover="allowDrop(event)">
+</div>
+<div id="div2"
+     style="
+         width: 533px;
+         height: 300px;
+         border: solid;
+         float: right;"
+     ondrop="drop(event)"
+     ondragover="allowDrop(event)">
+</div>
+</body>
+</html>

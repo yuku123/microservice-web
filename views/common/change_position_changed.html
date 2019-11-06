@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title> 页面名称 </title>
+    <link rel="stylesheet" href="../../public/assets/layui/css/layui.css">
+    <style type="text/css">
+        #node1 {
+            /*position: absolute;*/
+            /*left: 100px;*/
+            /*top: 100px;*/
+            width: 50px;
+            height: 50px;
+            background-color: #3dff18;
+        }
+        #node2 {
+            /*position: absolute;*/
+
+            /*left: 100px;*/
+            /*top: 100px;*/
+            width: 30px;
+            height: 30px;
+            background-color: #ff0449;
+        }
+
+        .workflow {
+            background-color: #c1d6c2;
+            /*overflow:scroll*/
+        }
+        .node {
+            /*float:right;*/
+            width:20%;
+            height: 100px;
+        }
+        .inner-workflow{
+            height: 1000px;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div class="layui-fluid">
+        <div class="layui-row">
+            <div class="layui-col-md10">
+                <div class="workflow" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div class="inner-workflow"></div>
+                </div>
+            </div>
+            <div class="layui-col-md2">
+                <div class="node">
+                    <!--<div id="node1">-->
+                    <!--这里是node-->
+                    <!--</div>-->
+                    <div id="node2" draggable="true" ondragstart="drag(event)">
+                        node2
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../public/assets/layui/layui.js"></script>
+<script type="text/javascript">
+    layui.use('element', function(){
+        var element = layui.element;
+
+        //…
+    });
+
+    var div = document.getElementById("node2");
+    var dragFlag = false;
+    var x,y;
+
+    div.onmousedown = function (e) {
+        e = e || window.event;
+        x = e.clientX - div.offsetLeft;
+        y = e.clientY - div.offsetTop;
+        dragFlag = true;
+    };
+
+    document.onmousemove = function (e) {
+        if (dragFlag) {
+            e = e || window.event;
+            div.style.left = e.clientX - x + "px";
+            div.style.top  = e.clientY - y + "px";
+        }
+    };
+
+    document.onmouseup = function (e) {
+        dragFlag = false;
+    };
+
+
+    /*drag(event);函数的功能:
+*   把界面元素的的id属性激励在事件中，类型是Text。
+* */
+    function drag(event){
+        event.dataTransfer.setData("text",event.target.id);
+    }
+    /*drop(event);函数的功能：
+    *   得到移动界面元素的id，然后将其放置到界面元素自身中去。
+    * */
+    function drop(event) {
+        var data = event.dataTransfer.getData("text");
+        event.target.appendChild(document.getElementById(data));
+    }
+    /*allowDrop(event);函数的功能
+    *   修改界面元素的默认处理方法，使界面元素可以接受移动元素。
+    * */
+    function allowDrop(event) {
+        event.preventDefault();
+    }
+
+</script>
+</body>
+</html>

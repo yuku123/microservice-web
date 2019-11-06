@@ -20,3 +20,13 @@
 .card-body{
 
 }
+
+#content-box{
+    border:2px solid #c3cfc0;
+    margin: 0px 23px 0px 23px;
+    border-radius:10px;
+}
+
+.card-body-box{
+    padding-top: 10px;
+}
