@@ -9,7 +9,7 @@ let request = require('request')
 // let app = express();
 
 router.get('/', function (req, res, next) {
-  res.render('/workflow/aa', {
+  res.render('index', {
     name: 'aa',
     userName: 'zifang'
   })
