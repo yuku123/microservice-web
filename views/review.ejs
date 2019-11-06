@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>??-审核列表</title>
+    <%- include('common/pageConfig') %>
+    <!-- Custom styles for this template-->
+    <link rel="stylesheet" href="/public/css/review.css">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <%- include('common/header') %>
+    <%- include('common/navigation') %>
+    <Main>
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div class="layui-fluid">
+                <div class="layui-row layui-col-space20">
+                    <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+                        <div class="layui-card">
+                            <div class="layui-card-body">
+                                <div class="layui-row">
+                                    <div class="layui-col-md2">
+                                        <div class="table-title">审核列表</div>
+                                    </div>
+                                    <div class="layui-col-md4 layui-col-md-offset6">
+                                        <div class="table-search">
+                                            <form class="layui-form" action="">
+                                                <div class="layui-form-item">
+                                                    <div class="layui-input-block">
+                                                        <input type="text" name="search" placeholder="搜索" autocomplete="off" class="layui-input" id="search">
+                                                        <input type="text" style="display: none;">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-row">
+                                    <div class="layui-col-md12">
+                                        <table id="reviewResult" lay-filter="reviewResult"></table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Main>
+</div>
+<script type="text/html" id="toolbar">
+    <a class="table-btn" lay-event="agree" data-href="http://localhost:8080/verification/agree?reportId={{d.reportId}}">同意</a>
+    <a class="table-btn" lay-event="refuse" data-href="http://localhost:8080/verification/refuse?reportId={{d.reportId}}">驳回</a>
+    <a class="table-btn" lay-event="download" data-href="http://localhost:8080/verification/download?reportId={{d.reportId}}">下载</a>
+</script>
+</body>
+<%- include('common/script') %>
+<script src="/public/js/review.js" type="application/javascript"></script>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>??-配置列表</title>
+    <%- include('common/pageConfig') %>
+    <!-- Custom styles for this template-->
+    <link rel="stylesheet" href="/public/css/configList.css">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <%- include('common/header') %>
+    <%- include('common/navigation') %>
+    <Main>
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div class="layui-fluid">
+                <div class="layui-row layui-col-space20">
+                    <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+                        <div class="layui-card">
+                            <div class="layui-card-body">
+                                <div class="config">
+                                    <div class="config-item config-left">
+                                        <svg class="icon piday-icon" aria-hidden="true">
+                                            <use xlink:href="#icon-yue"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="config-item config-right">
+                                        <div class="title">月报</div>
+                                        <div class="subtitle">配置时间：<span>2019-08-07 12:56:00</span></div>
+                                        <a class="layui-btn piday-btn-sm piday-btn-primary" href="/config/1">更新配置</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+                        <div class="layui-card">
+                            <div class="layui-card-body">
+                                <div class="config">
+                                    <div class="config-item config-left">
+                                        <svg class="icon piday-icon" aria-hidden="true">
+                                            <use xlink:href="#icon-ji"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="config-item config-right">
+                                        <div class="title">季报</div>
+                                        <div class="subtitle">配置时间：<span>2019-08-07 12:56:00</span></div>
+                                        <a class="layui-btn piday-btn-sm piday-btn-primary" href="/config/3">更新配置</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+                        <div class="layui-card">
+                            <div class="layui-card-body">
+                                <div class="config">
+                                    <div class="config-item config-left">
+                                        <svg class="icon piday-icon" aria-hidden="true">
+                                            <use xlink:href="#icon-bannian"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="config-item config-right">
+                                        <div class="title">半年报</div>
+                                        <div class="subtitle">配置时间：<span>2019-08-07 12:56:00</span></div>
+                                        <a class="layui-btn piday-btn-sm piday-btn-primary" href="/config/6">更新配置</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+                        <div class="layui-card">
+                            <div class="layui-card-body">
+                                <div class="config">
+                                    <div class="config-item config-left">
+                                        <svg class="icon piday-icon" aria-hidden="true">
+                                            <use xlink:href="#icon-nian"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="config-item config-right">
+                                        <div class="title">年报</div>
+                                        <div class="subtitle">配置时间：<span>2019-08-07 12:56:00</span></div>
+                                        <a class="layui-btn piday-btn-sm piday-btn-primary" href="/config/12">更新配置</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Main>
+</div>
+</body>
+<%- include('common/script') %>
+<script type="application/javascript" src="/public/js/configList.js"></script>
+</html>

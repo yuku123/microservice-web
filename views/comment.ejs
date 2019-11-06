@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>??-点评页</title>
+    <%- include('common/pageConfig') %>
+    <!-- Custom styles for this template-->
+    <link rel="stylesheet" href="/public/css/comment.css">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <%- include('common/header') %>
+    <%- include('common/navigation') %>
+    <Main>
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div class="layui-fluid">
+                <div class="layui-row layui-col-space20">
+                    <!--<h1>报告：<%= reportId %></h1>-->
+                    <div class="layui-col-md12">
+                        <span class="layui-breadcrumb">
+                          <a href="/comment">点评列表</a>
+                          <a><cite>点评页</cite></a>
+                        </span>
+                    </div>
+                    <div class="layui-col-md12">
+                        <div class="layui-card">
+                            <div class="layui-card-body">
+                                <div class="layui-row layui-col-space20">
+                                    <div class="layui-col-md12" id="title">
+                                        <div class="report-title"><%= data.title %></div>
+                                    </div>
+                                </div>
+                                <div class="layui-row layui-col-space20">
+                                    <div class="layui-col-md12">
+                                        <div class="report-body">
+                                            <div class="report-chapter">
+                                                <p class="report-chapter-title report-chapter-title-lv1"><%= data.zj_1_header %></p>
+                                                <div class="report-chapter-body">
+                                                    <p class="report-chapter-title report-chapter-title-lv2"><%= data.zj_1_1_header %></p>
+                                                    <div class="report-chapter-body">
+                                                        <p class="report-chapter-title report-chapter-title-lv2"><%= data.zj_1_1_1_header %></p>
+                                                        <div class="report-chapter-body"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Main>
+</div>
+</body>
+<script id="titleTpl" type="text/html">
+
+</script>
+<%- include('common/script') %>
+<script type="application/javascript" src="/public/js/comment.js"></script>
+</html>

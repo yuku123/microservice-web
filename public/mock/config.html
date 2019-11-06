@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/public/assets/layui/css/layui.css">
+    <link rel="stylesheet" href="/public/assets/plugin/autocompleter/autocomplete.css">
+    <link rel="stylesheet" href="/public/assets/plugin/dtree/dtree.css">
+    <link rel="stylesheet" href="/public/assets/plugin/dtree/font/dtreefont.css">
+    <link rel="stylesheet" href="/public/css/config.css">
+    <script src="//at.alicdn.com/t/font_1359317_01i24dmqbp4m.js"></script>
+</head>
+<body>
+<div id="popup" class="piday-popup">
+    <div class="layui-fluid">
+        <div class="layui-row layui-col-space20">
+            <div class="layui-col-md12">
+                <div class="popup-title">选择类别、细分及友商</div>
+            </div>
+        </div>
+        <div class="layui-row layui-col-space20">
+            <div class="layui-col-md12">
+                <div class="popup-body">
+                    <div class="select-category">
+                        <div class="popup-body-subtitle">
+                            选择类别
+                        </div>
+                        <div id="treeBox" style="overflow: scroll">
+                            <ul id="dataTree" class="dtree" data-id="0"></ul>
+                        </div>
+                        <div>
+                            <button type="button" class="layui-btn piday-btn" id="saveCategory">保存分类</button>
+                            <span class="layui-word-aux piday-error" id="categoryError">请选择分类</span>
+                        </div>
+                    </div>
+                    <div class="select-subdivision">
+                        <div class="popup-body-subtitle">
+                            选择细分
+                        </div>
+                        <div id="subTreeBox" style="overflow: scroll">
+                            <ul id="subDataTree" class="dtree" data-id="0"></ul>
+                        </div>
+                    </div>
+                    <div class="select-business">
+                        <div class="popup-body-subtitle">
+                            选择友商
+                        </div>
+                        <div class="business-search">
+                            <form class="layui-form" action="">
+                                <div class="layui-form-item">
+                                    <div class="layui-input-block">
+                                        <input type="text" name="search" placeholder="搜索友商" autocomplete="off" class="layui-input" id="search">
+                                        <input type="text" style="display: none;">
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="business-search-select" id="searchSelect"></div>
+                        </div>
+                    </div>
+                    <div class="save-btn-box">
+                        <button type="button" class="layui-btn piday-btn" id="saveAll">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="selectTpl">
+    <p class="piday-selected-item" data-id="{{d.publiCompId}}">{{d.publiCompName}}
+        <svg class="icon piday-icon piday-delete" aria-hidden="true">
+            <use xlink:href="#icon-shanchu"></use>
+        </svg>
+    </p>
+</script>
+<script type="text/javascript" src="/public/assets/layui/layui.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="/public/js/common.js"></script>
+<script src="/public/js/popup.js"></script>
+</body>
+</html>

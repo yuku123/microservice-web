@@ -1,0 +1,22 @@
+.layui-col-xs6{
+    background: #00FF00;
+}
+
+.bnt-box{
+    padding-left: 23px;
+    margin-bottom:1em
+}
+
+.card-header-box{
+    height: 54px;
+    line-height: 54px;
+    background-color: #E7F1F6;
+    color: #343C47;
+    font-size: 18px;
+    padding-left: 23px;
+    font-weight: 500;
+}
+
+.card-body{
+
+}

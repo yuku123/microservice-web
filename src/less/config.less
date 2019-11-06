@@ -1,0 +1,90 @@
+@import "common";
+
+Main{
+  .layui-card{
+    .table-title{
+      height: 38px;
+      line-height: 38px;
+      font-size: 20px;
+      position: relative;
+      &::before{
+        content:" ";
+        border: 2px solid #FD2C14;
+        border-radius:2px;
+        position: absolute;
+        top: 17px;
+        left: -8px;
+      }
+      .piday-word-aux{
+        font-size: 14px;
+        color: @subColor;
+      }
+    }
+  }
+}
+.piday-popup{
+  .dtree-laySimple-item cite{
+    font-size: 14px!important;
+    color: @textColor !important;
+  }
+  .popup-body{
+    .popup-body-subtitle{
+      height:18px;
+      font-size:16px;
+      padding-bottom: 14px;
+      color: @titleColor;
+    }
+    .select-category{
+      border-bottom: 1px solid #E8E8E8;
+      padding-bottom: 16px;
+      #treeBox{
+        margin-bottom: 16px;
+      }
+
+    }
+    .select-subdivision{
+      padding: 16px 0;
+      display: none;
+      border-bottom: 1px solid #E8E8E8;
+    }
+    .select-business{
+      display: none;
+      padding: 16px 0;
+      .layui-input-block{
+        margin-left: 0;
+      }
+      .business-search-select{
+        min-height: 100px;
+        p{
+          display: inline-block;
+          position: relative;
+          background-color: #F0F1F2;
+          height: 28px;
+          line-height: 28px;
+          padding: 0 20px;
+          color: @textColor;
+          margin: 0 10px 10px 0;
+          .piday-icon{
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            color: @warning;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .save-btn-box{
+      display: none;
+    }
+    .layui-word-aux{
+      &.piday-error{
+        display: none;
+        color: @warning !important;
+      }
+    }
+  }
+}
+

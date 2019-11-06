@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>??-配置页</title>
+    <%- include('common/pageConfig') %>
+    <!-- Custom styles for this template-->
+    <link rel="stylesheet" href="/public/css/config.css">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <%- include('common/header') %>
+    <%- include('common/navigation') %>
+    <Main>
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div class="layui-fluid">
+                <div class="layui-row layui-col-space20">
+                    <div class="layui-col-md12">
+                        <span class="layui-breadcrumb">
+                          <a href="/">配置列表</a>
+                          <a><cite>配置页</cite></a>
+                        </span>
+                    </div>
+                </div>
+                <div class="layui-row layui-col-space20">
+                    <div class="layui-col-md12">
+                        <div class="layui-card">
+                            <div class="layui-card-body">
+                                <div class="layui-row">
+                                    <div class="layui-col-md12">
+                                        <div class="table-title" id="configType" data-type="<%= configType %>">
+                                            关注类别及友商设定
+                                            <span class="layui-word-aux piday-word-aux" id="classificationCount" data-count="<%= classificationCount %>">最多添加3个类别，每个类别最多添加<%= classificationCount %>个细分类</span>
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md12">
+                                        <table id="result" lay-filter="result"></table>
+                                    </div>
+                                    <div class="layui-col-md12">
+                                        <button type="button" class="layui-btn piday-btn-sm piday-btn-primary" id="add">添加分类</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row layui-col-space20">
+                    <div class="layui-col-md12">
+                        <button type="button" class="layui-btn piday-btn" id="saveConfig">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Main>
+</div>
+
+</body>
+
+<script type="text/html" id="toolbar">
+    <a class="table-btn" lay-event="del">删除</a>
+</script>
+<%- include('common/script') %>
+<script type="application/javascript" src="/public/js/config.js"></script>
+</html>
