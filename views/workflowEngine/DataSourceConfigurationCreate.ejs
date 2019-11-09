@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>系统集成</title>
-    <%- include('common/pageConfig') %>
+    <%- include('../common/pageConfig') %>
     <!-- Custom styles for this template-->
     <link rel="stylesheet" href="/public/css/index.css">
     <link rel="stylesheet" href="/public/css/workflowEngineDataSourceConfiguration.css">
@@ -10,8 +10,8 @@
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
-    <%- include('common/header') %>
-    <%- include('common/navigation') %>
+    <%- include('../common/header') %>
+    <%- include('../common/navigation') %>
     <Main>
         <div class="layui-body">
             <div id="create_datasource">
@@ -38,7 +38,7 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">ip地址</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="ip" required  lay-verify="required" placeholder="请输入ip:端口" autocomplete="off" class="layui-input">
+                            <input type="text" name="ip" required  lay-verify="required" placeholder="请输入ip" autocomplete="off" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item">
@@ -70,7 +70,7 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">对下级公开</label>
                         <div class="layui-input-block">
-                            <input type="checkbox" name="pubicFlag" lay-skin="switch">
+                            <input type="checkbox" name="publicFlag" lay-skin="switch">
                         </div>
                     </div>
                     <div class="layui-form-item">
@@ -86,7 +86,7 @@
 </div>
 
 </body>
-<%- include('common/script') %>
+<%- include('../common/script') %>
 
 
 <script>
@@ -111,7 +111,7 @@
                 success:function(data){
                     if(data){
                         layer.alert("提交成功！")
-                        good = 1
+                        window.location.href = '/workflowEngine/workflowEngineDataSourceConfiguration'
                     }
                     else{
                         layer.alert("提交失败！")

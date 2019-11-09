@@ -10,7 +10,7 @@ let request = require('request')
 
 
 router.get('/workflowEngineDataSourceConfiguration', function (req, res, next) {
-    res.render('workflowEngineDataSourceConfiguration', {
+    res.render('workflowEngine/DataSourceConfiguration', {
         name: 'index',
         userName: 'zifang'
     })
@@ -18,7 +18,7 @@ router.get('/workflowEngineDataSourceConfiguration', function (req, res, next) {
 
 //在数据源配置列表内的,创建逻辑
 router.get('/workflowEngineDataSourceConfiguration/create', function (req, res, next) {
-    res.render('workflowEngineDataSourceConfigurationCreate', {
+    res.render('workflowEngine/DataSourceConfigurationCreate', {
         name: 'index',
         userName: 'zifang'
     })
