@@ -15,7 +15,13 @@
         * */
         function drop(event) {
             var data = event.dataTransfer.getData("text");
-            event.target.appendChild(document.getElementById(data));
+            var target = document.getElementById(data)
+            x = event.clientX
+            y = event.clientY
+            console.log()
+            target.style.left=x+"px"
+            target.style.top=y+"px"
+            event.target.appendChild(target);
         }
         /*allowDrop(event);函数的功能
         *   修改界面元素的默认处理方法，使界面元素可以接受移动元素。
@@ -36,6 +42,9 @@
     <img id="drag1"
          src="a.png"
          alt=""
+         style="
+         position: absolute"
+
          ondragstart="drag(event)">
 
 </div>

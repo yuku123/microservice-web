@@ -25,6 +25,8 @@
 
         .workflow {
             background-color: #c1d6c2;
+            /*position: absolute;*/
+
             /*overflow:scroll*/
         }
         .node {
@@ -51,7 +53,7 @@
                     <!--<div id="node1">-->
                     <!--这里是node-->
                     <!--</div>-->
-                    <div id="node2" draggable="true" ondragstart="drag(event)">
+                    <div id="node_tobe_move" draggable="true" ondragstart="drag(event)">
                         node2
                     </div>
                 </div>
@@ -61,34 +63,82 @@
 </div>
 <script src="../../public/assets/layui/layui.js"></script>
 <script type="text/javascript">
+    //累加器
+    i =1
+
     layui.use('element', function(){
         var element = layui.element;
-
-        //…
     });
 
-    var div = document.getElementById("node2");
-    var dragFlag = false;
-    var x,y;
+    // window.onload = function(){
+    //     console.log("onload")
+    //
+    // }
+    // document.onclick = function(e){
+    //     console.log("click")
+    //     var target = e.target|| e.srcElement;
+    //     console.log(target.id)
+    //     cloneTarget = target.cloneNode(true)
+    //     console.log(cloneTarget.id)
+    //     cloneTarget.id = i++
+    //     setMove(cloneTarget)
+    // }
+    //
 
-    div.onmousedown = function (e) {
-        e = e || window.event;
-        x = e.clientX - div.offsetLeft;
-        y = e.clientY - div.offsetTop;
-        dragFlag = true;
-    };
+    function setMove2(odiv) {
+        odiv.onmousedown = function (ev) {
+            var event = window.event || ev;
+            // 获取屏幕中可视化的宽高的坐标
+            var dx = event.clientX - odiv.offsetLeft;
+            var dy = event.clientY - odiv.offsetTop;
+            console.log(event);
+            console.log(dy)
+            //实时改变目标元素odiv的位置
+            document.onmousemove = function (ev) {
+                var event = window.event || ev;
+                odiv.style.left = event.clientX - dx + 'px';
+                odiv.style.top = event.clientY - dy + 'px';
+            }
 
-    document.onmousemove = function (e) {
-        if (dragFlag) {
-            e = e || window.event;
-            div.style.left = e.clientX - x + "px";
-            div.style.top  = e.clientY - y + "px";
+            //抬起停止拖动
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+
+            }
         }
-    };
+    }
 
-    document.onmouseup = function (e) {
-        dragFlag = false;
-    };
+
+    function setMove(element){
+        var dragFlag = false;
+        var x,y;
+        element.onmousedown = function (e) {
+            console.log("down")
+            e = e || window.event;
+            x = e.clientX - element.offsetLeft;
+            y = e.clientY - element.offsetTop;
+            dragFlag = true;
+        };
+
+        document.onmousemove = function (e) {
+            console.log("down")
+
+            if (dragFlag) {
+                e = e || window.event;
+                element.style.left = e.clientX - x + "px";
+                element.style.top  = e.clientY - y + "px";
+            }
+        };
+
+        document.onmouseup = function (e) {
+            dragFlag = false;
+        };
+    }
+
+    // function setDrag(element){
+    //
+    // }
 
 
     /*drag(event);函数的功能:
@@ -102,7 +152,15 @@
     * */
     function drop(event) {
         var data = event.dataTransfer.getData("text");
-        event.target.appendChild(document.getElementById(data));
+        target = document.getElementById(data)
+        var cloneTarget = target.cloneNode(true)
+        cloneTarget.id = i++
+        cloneTarget.style.position="absolute"
+        cloneTarget.style.left = event.x+"px"
+        cloneTarget.style.top=event.y+"px"
+        event.target.appendChild(cloneTarget);
+        cloneTarget.draggable=false
+        setMove2(cloneTarget)
     }
     /*allowDrop(event);函数的功能
     *   修改界面元素的默认处理方法，使界面元素可以接受移动元素。

@@ -19,28 +19,40 @@
 </div>
 
 <script type="text/javascript">
-    var div = document.getElementById("div");
-    var dragFlag = false;
-    var x,y;
 
-    div.onmousedown = function (e) {
-        e = e || window.event;
-        x = e.clientX - div.offsetLeft;
-        y = e.clientY - div.offsetTop;
-        dragFlag = true;
-    };
-
-    document.onmousemove = function (e) {
-        if (dragFlag) {
-            e = e || window.event;
-            div.style.left = e.clientX - x + "px";
-            div.style.top  = e.clientY - y + "px";
+    window.onload = function(){
+        document.onclick = function(e){
+            var target = e.target|| e.srcElement;
+            setMove(target)
         }
-    };
+    }
 
-    document.onmouseup = function (e) {
-        dragFlag = false;
-    };
+    function setMove(element){
+        var dragFlag = false;
+        var x,y;
+        element.onmousedown = function (e) {
+            console.log("down")
+            e = e || window.event;
+            x = e.clientX - div.offsetLeft;
+            y = e.clientY - div.offsetTop;
+            dragFlag = true;
+        };
+
+        document.onmousemove = function (e) {
+            console.log("down")
+
+            if (dragFlag) {
+                e = e || window.event;
+                div.style.left = e.clientX - x + "px";
+                div.style.top  = e.clientY - y + "px";
+            }
+        };
+
+        document.onmouseup = function (e) {
+            dragFlag = false;
+        };
+    }
+
 
 </script>
 </body>
